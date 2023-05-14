@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Muistilista</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/tyylit1.css">
+        
+</head>
+
+<body>
+
+  <!-- Header, jossa on sivuston nimi -->       
+  <div class="header">
+    <h1>Muistilistaa ja matkahistoriaa</h1>
+  </div> 
+  <!-- Navigointipalkki, jossa siirtymät muille sivuille -->
+  <div class="topnav">
+    <a href="../index.html">Aloitussivu</a>
+    <a href="../sivut/kohteessa.html">Tekemistä kohteessa</a>
+                   
+  </div>
+  <!-- Koko sivun layout on toteutettu kolmena sarakkeena, jossa muistilista, 
+    kuljetussivulle linkki ja oikealla matkahistoriaa-->
+  <div class="row">
+  <div class="column side">
+    
+	<!-- Vasen sarake: muistilista otsikko -->
+  <h2>Tässä muistilista/tarkistuslista:</h2>
+  
+	  <li>Passit</li>
+    <li>Aurinkorasvat</li>
+    <li>Uima-asut</li>
+    <li>vaihtovaatteet</li>
+    <li>Lääkkeet/rokotukset</li>
+    <li>Vakuutukset</li>
+    <li>Junaliput</li>
+    <li>Matkarattaat</li>
+    <li>Käteistä</li>
+    <li>Rantalelut</li>
+    <li>Elektroniikkalaitteiden laturit</li>
+
+    <!-- Tarkistuskenttä radio buttoneita käyttäen, jossa oletusarvona
+    on kaikki vielä hoitamatta -->
+    <form>
+      <input type="radio" name="tarkistuslista" value="hoitamatta" checked="checked">Hoitamatta<br>
+      <input type="radio" name="tarkistuslista" value="hoidettu">Hoidettu<br>
+    </form>
+
+    <script>
+      // Tallennetaan valinta Local Storage -muuttujaan
+      let tarkistuslista = document.getElementsByName("tarkistuslista");
+      for (let i = 0; i < tarkistuslista.length; i++) {
+        tarkistuslista[i].addEventListener("change", function() {
+          localStorage.setItem("tarkistuslista", this.value);
+        });
+      }
+    
+      // Tarkistetaan tallennettu valinta Local Storage -muuttujasta ja asetetaan se radiopainikkeelle
+      let tallennettu = localStorage.getItem("tarkistuslista");
+      if (tallennettu) {
+        for (let i = 0; i < tarkistuslista.length; i++) {
+          if (tarkistuslista[i].value === tallennettu) {
+            tarkistuslista[i].checked = true;
+          }
+        }
+      }
+    </script>  
+      
+    
+  </div>
+    
+  <!-- Keskimmäinen osio, jossa kuljetus kentältä hotelliin -->
+  <div class="column middle">    
+    
+    <h2>Kuljetus:</h2>
+      <p>Lenttokenttäkuljetus</p>
+      <center>
+      <!-- Kuvasta linkki kuljetussivulle -->
+      <a href="https://www.suntransfers.com/" target="_blank"><img src="../media/kuljetus.png"
+      alt="Kuvankaappaus" width="300" height="150"></center>
+      </a>
+    
+  </div>
+  <!-- Oikean sarakkeen osio -->
+  <div class="column side">
+
+    <!-- Matkahistoriaa lueteltuna, kaupunki, maa ja vuosi -->
+    <h2>Matkahistoriaa</h2>
+    <h3>Aiemmat matkani ulkomaille, jos Ruotsia ja Viroa ei lasketa...</h3>
+    <ol>Berlin, Saksa, 2000</ol>
+    <ol>Parga, Kreikka, 2003</ol>
+    <ol>Marmaris, Turkki, 2004</ol>
+    <ol>Praia Da Rocha, Portugali, 2005</ol>
+    <ol>Ayia Napa, Kypros, 2007</ol>
+    <ol>Puerto Plata, Dominikaaninen tasavalta, 2009</ol>
+    <ol>Riika, Latvia, 2012</ol>
+    <ol>Praha, Tsekki, 2013</ol>
+    <ol>Kos, Kos, 2015</ol>
+    <ol>Belek, Turkki, 2016</ol>
+    <ol>Belek, Turkki, 2017</ol>
+    <ol>Ixia, Rodos / Platanias, Hania / Barcelona, Espanja, 2018</ol>
+    <ol>Lara, Turkki / Pariisi, Ranska, 2019</ol>
+    <ol>Lara, Turkki, 2022</ol>
+
+
+  </div>
+</div>
+<!-- alapalkki, jossa tekijänoikeus -->
+<div class="footer">
+  <p>© Copyright Antti Kallioväli 2023</p>
+</div>  
+  </body>
+</html>>
+
+            
+
+
+
+       

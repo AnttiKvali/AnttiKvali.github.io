@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>kesälomamatka</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/tyylit1.css">
+
+</head>
+<body>
+<!-- Header -otsikko, joka näkyy sivun yläreunassa -->   
+<div class="header">
+  <h1>Tuleva kesälomamatka</h1>
+</div>
+<!-- Countdown-laskuri, joka näyttää jäljellä olevan ajan matkaan -->
+<p id="countdown"></p>
+  
+    <script>
+    // Asetataan tavoitepäivämäärä ja -aika tähän muotoon: YYYY-MM-DD HH:MM:SS
+    var deadline = "2023-07-02 22:40:00";
+  
+    var countdown = document.getElementById("countdown");
+    // Asetetaan interval-timer, joka päivittää laskuria joka sekunti
+    var interval = setInterval(function() {
+    var now = new Date().getTime();
+    var target = new Date(deadline).getTime();
+  
+    var timeLeft = target - now;
+  
+    // Laskee päivät, tunnit, minuutit ja sekunnit jäljellä olevasta ajasta
+    var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+  
+    // Näyttää jäljellä olevan ajan käyttäjälle
+    countdown.innerHTML = "Jäljellä oleva aika matkaan: " + days + " päivää, " + hours + " tuntia, " + minutes + " minuuttia, " + seconds + " sekuntia.";
+      // Kun aika on kulunut, pysäytetään interval-timer ja näytetään viesti "Olisi syytä olla jo koneessa!"
+      if (timeLeft < 0) {
+        clearInterval(interval);
+        countdown.innerHTML = "Olisi syytä olla jo koneessa!";
+        }
+      }, 1000);
+    </script>
+
+<!-- Navigointipalkki, jossa siirtymät muille sivuille -->
+<div class="topnav">
+  <a href="sivut/muistilista.html">Muistilista</a>
+  <a href="sivut/kohteessa.html">Tekemistä kohteessa</a>
+ </div>
+
+<!-- Koko sivun layout on toteutettu kolmena sarakkeena, jossa vasemmalla
+  linkit, keskellä kohteen kuva ja oikealla tarinaa-->
+<div class="row">
+  <div class="column side">
+    <h2>Linkit:</h2>
+      <!-- Lista hyödyllisistä linkeistä matkaan liittyen -->
+      <li><a href="http://www.tui.fi" target="_blank">Tui:n sivut</a>
+      <li><a href="https://um.fi/matkustaminen" target="_blank">Ulkoministeriön sivut</a>
+      <li><a href="https://um.fi/matkustustiedote/-/c/TR" target="_blank">Ulkoministeriön Turkin matkustustiedote-sivut</a></li>
+    </div>
+  
+  <div class="column middle">
+    
+    <h2>Kohteemme: Trendy Lara, Antalya, Turkki</h2>
+    
+    <!-- Hotelli kohteemme kuva -->
+    <a href="https://trendy.com.tr/lara/" target="_blank">
+      <img src="media/trendylara.jpg" alt="Trendy Lara" width="750" height="400">
+    </a>
+  </div>
+  
+  <div class="column side">
+    <!-- Kertomuksia -->
+    <h2>Matkaseurueemme ja matkasuunnitelma</h2>
+    <p>Lähdemme tänne matkaseurueella, joka koostuu kolmesta aikuisesta ja kahdesta lapsesta. 
+      Mukaan lähtevät siis minä, vaimoni ja poikamme 1v ja matkalla 10v täyttävä. 
+      Lisäksi mukaamme lähtee äitini, joka
+    on jo pitkään haaveillut pääsevänsä taas ulkomaille.</p>
+    <p> Matkaamme sunnuntaina 2.7 Helsinkiin junalla ja 
+      lennämme ilta-/yölennolla Antalyaan. Ennakkoon varatulla 
+      kuljetuksella hotelli Trendy Laraan, jossa nautimme viikon verran 
+      auringosta, hyvästä ruoista, juomista, esityksistä ja mahdollisista
+      retkistä lähialueille. Sunnuntaina 9.7 iltapäivällä 
+      paluulento Helsinkiin. Jäämme vielä yhdeksi yöksi hotelliin Helsinkiin ennen
+      kuin jatkamme takaisin kotiin Lapualle.</p>
+  </div>
+</div>
+
+<!-- alapalkki, jossa tekijänoikeus -->
+<div class="footer">
+  <p>© Copyright Antti Kallioväli 2023</p>
+</div>  
+</body>
+</html>
+
+
